@@ -1,0 +1,20 @@
+- hosts: localhost
+  vars:
+    manifest_path: '/Users/srefson/dev/projects/workspace/gs-sts-cloud-foundry-deployment/manifest.yaml'
+    code_path: '/Users/srefson/dev/projects/tmp/pcf-poc-greetings-0.1.0.jar' 
+    max_clients: 200
+    remote_user: srefson
+  tasks:      
+    - maven_artifact:
+        group_id: com.hsbc.eqfin
+        artifact_id: pcf-poc-greetings
+        version: 0.1.0
+        repository_url: "http://localhost:8081/nexus/content/repositories/releases/"
+        extension: jar
+        username: admin
+        password: admin123
+        dest: /Users/srefson/dev/projects/tmp/pcf-poc-greetings-0.1.0.jar
+        state: present
+        validate_certs: no 
+    - name: deploy app to cloud foundry
+      shell: /usr/local/bin/cf push gs-sts-cloud-foundry-deployment  -f {{manifest_path}} -p {{code_path}}
