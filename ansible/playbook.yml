@@ -15,3 +15,5 @@
         state: present
     - name: deploy app to cloud foundry
       shell: /usr/local/bin/cf push gs-sts-cloud-foundry-deployment  -f {{manifest_path}} -p {{code_path}}
+
+      
