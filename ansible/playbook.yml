@@ -14,6 +14,6 @@
         dest: /Users/srefson/dev/projects/tmp/pcf-poc-greetings-0.1.0.jar
         state: present
     - name: deploy app to cloud foundry
-      shell: /usr/local/bin/cf push gs-sts-cloud-foundry-deployment  -f {{manifest_path}} -p {{code_path}}
+      shell: /usr/local/bin/cf push pcf-poc-deployment  -p {{code_path}}
 
       
