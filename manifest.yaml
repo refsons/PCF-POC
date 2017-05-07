@@ -1,7 +1,7 @@
 ---
 applications:
-- name: gs-sts-cloud-foundry-deployment
+- name: pcf-poc-deployment
   memory: 1024M
   buildpack: java_buildpack
   routes:
-  - route: gs-sts-cloud-foundry-deployment-simonr-1078.cfapps.io
+  - route: pcf-poc-deployment-simonr-1078.cfapps.io
