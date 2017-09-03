@@ -1,0 +1,33 @@
+server:
+  port: 10400
+  
+spring:
+  application:
+    name: zipkin
+  datasource:
+    schema: classpath:/cassandra-schema.cql
+    url: jdbc:cassandra://127.0.0.1:9042
+    keyspace: zipkin
+    contactPoints: localhost
+    initialize: true
+    continue-on-error: true
+  sleuth:
+    enabled: false
+
+
+zipkin:
+  storage:
+    type: cassandra
+      
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://127.0.0.1:8761/eureka/
+    healthcheck:
+      enabled: true
+    lease:
+      duration: 5
+
+
+
+
